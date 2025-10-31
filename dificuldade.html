@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batalha dos Feiticeiros - Dificuldade</title>
+  <link rel="stylesheet" href="dificuldade.css">
+</head>
+<body data-theme="dark">
+
+  <div class="settings-bar">
+    <button class="icon-btn" id="theme-toggle">🌙</button>
+    <button class="icon-btn" id="music-toggle">🎵</button>
+    <button class="icon-btn" id="sfx-toggle">🔊</button>
+  </div>
+
+  <div id="level-screen">
+    <button class="back-btn" onclick="window.location.href='index.html'">⬅️ Voltar</button>
+    <div class="title">Escolha a Dificuldade</div>
+
+    <div class="level-grid">
+      <div class="level-card" data-difficulty="easy">
+        <div class="level-icon">🌱</div>
+        <div class="level-name">Fácil</div>
+        <div class="level-desc">Inimigos mais fracos</div>
+      </div>
+
+      <div class="level-card" data-difficulty="normal">
+        <div class="level-icon">⚔️</div>
+        <div class="level-name">Normal</div>
+        <div class="level-desc">Desafio equilibrado</div>
+      </div>
+
+      <div class="level-card" data-difficulty="hard">
+        <div class="level-icon">💀</div>
+        <div class="level-name">Difícil</div>
+        <div class="level-desc">Inimigos fortes</div>
+      </div>
+
+      <div class="level-card" data-difficulty="insane">
+        <div class="level-icon">🔥</div>
+        <div class="level-name">Insano</div>
+        <div class="level-desc">Apenas para mestres</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="dificuldade.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batalha dos Feiticeiros - Enhanced</title>
+  <link rel="stylesheet" href="jogo.css">
+</head>
+<body>
+  <div class="top-bar">
+  <button class="back-btn" onclick="window.location.href='dificuldade.html'">⬅️ Voltar</button>
+  </div>
+
+  <div id="app">
+    <!-- Left Panel -->
+    <div class="panel left-panel">
+      <h2>⚙️ Configuração</h2>
+      
+      <div class="config-section">
+        <label>Classe do Mago</label>
+        <select id="class-select">
+          <option value="pyromancer">🔥 Piromante</option>
+          <option value="cryomancer">❄️ Criomante</option>
+          <option value="electromancer">⚡ Eletromante</option>
+          <option value="geomancer">🌋 Geomante</option>
+        </select>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Nível</div>
+          <div class="stat-value" id="player-level">1</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">XP</div>
+          <div class="stat-value"><span id="player-xp">0</span>/<span id="xp-needed">100</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Vitórias</div>
+          <div class="stat-value" id="wins">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Combo</div>
+          <div class="stat-value" id="combo">0</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top: 24px;">🎒 Inventário</h2>
+      <div class="inventory-grid">
+        <button class="item-btn" id="use-potion">🧪 Poção de Vida (<span id="potion-count">3</span>)</button>
+        <button class="item-btn" id="use-mana-potion">💎 Poção de Mana (<span id="mana-potion-count">2</span>)</button>
+        <button class="item-btn" id="use-shield">🛡️ Escudo Mágico (<span id="shield-count">1</span>)</button>
+      </div>
+    </div>
+
+    <!-- Battle Area -->
+    <div class="battle-area">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <!-- Player -->
+        <div class="character-card" id="player-card">
+          <div class="portrait" id="player-portrait">🧙‍♂️</div>
+          <div class="char-name" id="player-name">Você</div>
+          <div class="stat-bar">
+            <div class="stat-fill hp-fill" id="player-hp-fill" style="width: 100%"></div>
+            <div class="stat-text" id="player-hp-text">100/100</div>
+          </div>
+          <div class="stat-bar">
+            <div class="stat-fill mana-fill" id="player-mana-fill" style="width: 100%"></div>
+            <div class="stat-text" id="player-mana-text">100/100</div>
+          </div>
+          <div class="status-effects" id="player-status"></div>
+        </div>
+
+        <!-- Enemy -->
+        <div class="character-card" id="enemy-card">
+          <div class="portrait">🧙‍♀️</div>
+          <div class="char-name" id="enemy-name">Mago Rival</div>
+          <div class="stat-bar">
+            <div class="stat-fill hp-fill" id="enemy-hp-fill" style="width: 100%"></div>
+            <div class="stat-text" id="enemy-hp-text">100/100</div>
+          </div>
+          <div class="stat-bar">
+            <div class="stat-fill mana-fill" id="enemy-mana-fill" style="width: 100%"></div>
+            <div class="stat-text" id="enemy-mana-text">100/100</div>
+          </div>
+          <div class="status-effects" id="enemy-status"></div>
+        </div>
+      </div>
+
+      <canvas id="fx-canvas"></canvas>
+
+      <div class="controls">
+        <button class="spell-btn fire" data-spell="fire">🔥 Bola de Fogo<br><small>28 dano • 22 mana</small></button>
+        <button class="spell-btn ice" data-spell="ice">❄️ Raio Gélido<br><small>18 dano • 18 mana</small></button>
+        <button class="spell-btn meteor" data-spell="meteor">☄️ Meteoros<br><small>52 dano • 40 mana</small></button>
+        <button class="spell-btn defend" id="defend-btn">🛡️ Defender<br><small>Reduz dano em 40%</small></button>
+      </div>
+
+      <div class="info-panel">
+        <div class="turn-info">Turno: <span id="turn-counter">0</span></div>
+        <div class="result-banner" id="result-banner"></div>
+        <div class="action-btns">
+          <button class="small-btn" id="next-battle">➡️ Próxima Batalha</button>
+          <button class="small-btn" id="clear-log">🗑️ Limpar Log</button>
+          <button class="small-btn" id="reset-game">🔄 Resetar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="panel right-panel">
+      <h2>📜 Registro de Batalha</h2>
+      <div class="log-area" id="log"></div>
+    </div>
+  </div>
+    <script src="jogo.js"></script>
+</body>
+</html>

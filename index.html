@@ -1,72 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Batalha dos Feiticeiros — Web</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batalha dos Feiticeiros</title>
+  <link rel="stylesheet" href="index.css">
 </head>
-<body>
-  <main class="container">
-    <header class="topbar">
-      <h1>Batalha dos Feiticeiros</h1>
-      <div class="hint">Teclas: F (Fogo) • C (Congelante) • M (Meteoros) • D (Defesa) • P (Poção)</div>
-    </header>
+<body data-theme="dark">
+  <div class="settings-bar">
+    <button class="icon-btn active" id="theme-toggle">🌙</button>
+    <button class="icon-btn active" id="music-toggle">🎵</button>
+    <button class="icon-btn active" id="sfx-toggle">🔊</button>
+  </div>
 
-    <section class="arena">
-      <div class="card player-card">
-        <div class="portrait">🧙‍♂️</div>
-        <div class="bars">
-          <div class="label">Você</div>
-          <div class="bar hp"><div class="fill" id="player-hp-fill"></div><span id="player-hp-text"></span></div>
-          <div class="bar mana"><div class="fill" id="player-mana-fill"></div><span id="player-mana-text"></span></div>
-          <div class="small-info">
-            <span id="player-potions">Poções: 3</span>
-            <span id="player-def">Defesa: —</span>
-          </div>
-        </div>
-      </div>
+  <div class="container">
+    <div class="title">🧙‍♂️ Batalha dos Feiticeiros</div>
+    <div class="menu-container">
+      <a href="#" class="menu-btn" onclick="selecionarModo(1)">
+        🧙‍♂️ 1 Jogador<br>
+        <small>Você vs Máquina</small>
+      </a>
+    </div>
+  </div>
 
-      <div class="battlefield">
-        <div id="anim-layer" aria-hidden="true"></div>
-        <div class="controls">
-          <button class="btn spell" data-spell="fogo">🔥 Bola de Fogo</button>
-          <button class="btn spell" data-spell="raio">❄️ Raio Congelante</button>
-          <button class="btn spell" data-spell="meteoros">☄️ Chuva de Meteoros</button>
-          <button class="btn" id="defend-btn">🛡️ Defender</button>
-          <button class="btn" id="potion-btn">🧪 Usar Poção</button>
-        </div>
-
-        <div class="center-info">
-          <div id="turn-counter">Turno: 0</div>
-          <div id="result-banner" class="result hidden"></div>
-        </div>
-      </div>
-
-      <div class="card enemy-card">
-        <div class="portrait">🧙‍♀️</div>
-        <div class="bars">
-          <div class="label">Inimigo</div>
-          <div class="bar hp"><div class="fill" id="enemy-hp-fill"></div><span id="enemy-hp-text"></span></div>
-          <div class="bar mana"><div class="fill" id="enemy-mana-fill"></div><span id="enemy-mana-text"></span></div>
-          <div class="small-info">
-            <span id="enemy-status">Status: —</span>
-            <button class="btn ghost" id="restart-btn">Recomeçar</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="log-area">
-      <h2>Registro de batalha</h2>
-      <div id="log" class="log"></div>
-    </section>
-
-    <footer class="footer">
-      <small>Feito com ❤️ — Abra este arquivo no VSCode e use Live Server ou abra diretamente no navegador.</small>
-    </footer>
-  </main>
-
-  <script src="app.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
